@@ -2,16 +2,14 @@ import 'package:flutter/material.dart';
 
 class AppTextTheme {
   static TextTheme textTheme({required String font, required Color color}) =>
-      TextTheme( 
+      TextTheme(
           caption: TextStyle(
             fontFamily: font,
             color: color,
             fontWeight: FontWeight.w400,
           ),
           bodyText1: TextStyle(
-              fontFamily: font,
-              color: color,
-              fontWeight: FontWeight.w400),
+              fontFamily: font, color: color, fontWeight: FontWeight.w400),
           bodyText2: TextStyle(
               fontFamily: font,
               color: color.withOpacity(.6),

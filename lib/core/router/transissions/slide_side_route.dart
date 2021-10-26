@@ -8,7 +8,10 @@ class SlideSideRoute extends PageRouteBuilder {
   final Duration? duration;
 
   SlideSideRoute(
-      {this.duration,required this.settings, required this.page, this.isRight = false})
+      {this.duration,
+      required this.settings,
+      required this.page,
+      this.isRight = false})
       : super(
           settings: settings,
           reverseTransitionDuration: Duration(milliseconds: 400),
@@ -39,4 +42,3 @@ class SlideSideRoute extends PageRouteBuilder {
           },
         );
 }
-

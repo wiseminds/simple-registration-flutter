@@ -19,7 +19,7 @@ class ErrorModel {
   Map<String, dynamic> toJson() => _$ErrorModelToJson(this);
 
   ErrorModel copyWith({
-    String? message,
+   @JsonKey(name:'error') String? message,
     int? code,
   }) {
     return ErrorModel(

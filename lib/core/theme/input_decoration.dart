@@ -11,8 +11,9 @@ class AppInputDecoration {
               height: 0.0,
               fontWeight: FontWeight.w500),
           errorMaxLines: 1,
-          isCollapsed: true, 
-          contentPadding: const EdgeInsets.symmetric(horizontal: 6.0, vertical: 1.5),
+          isCollapsed: true,
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 6.0, vertical: 1.5),
           helperMaxLines: 3,
           prefixStyle: TextStyle(
               fontFamily: font,

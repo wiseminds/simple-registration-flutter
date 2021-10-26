@@ -8,7 +8,7 @@ import 'text_theme.dart';
 
 class AppTheme {
   String get font => Fonts.inter;
-  Color get primary => AppColors.primary; 
+  Color get primary => AppColors.primary;
   Color get backgroundColor => AppColors.backgroundColorLight;
   Color get backgroundColorDark => AppColors.backgroundColorDark;
   Color get cardColor => AppColors.cardColorLight;
@@ -21,10 +21,10 @@ class AppTheme {
   InputDecorationTheme get inputDecorationThemeDark =>
       AppInputDecoration.inputDecoration(color: Colors.white, font: font);
 
-  
-
-  TextTheme get _textThemeDark => AppTextTheme.textTheme(color: Colors.white, font: font);
-  TextTheme get _textThemeLight => AppTextTheme.textTheme(color: AppColors.textBlack, font: font);
+  TextTheme get _textThemeDark =>
+      AppTextTheme.textTheme(color: Colors.white, font: font);
+  TextTheme get _textThemeLight =>
+      AppTextTheme.textTheme(color: AppColors.textBlack, font: font);
 
   ThemeData get dark => ThemeData.dark().copyWith(
       primaryColor: primary,

@@ -1,14 +1,12 @@
+import 'package:flutter/material.dart';
+
 import 'package:challenge/constants/dimens.dart';
 import 'package:challenge/core/router/app_route.dart';
-import 'package:challenge/core/router/route_transisions.dart';
 import 'package:challenge/widgets/medium_button.dart';
-import 'package:flutter/material.dart';
 import 'package:challenge/core/extensions/index.dart';
 
-import 'phone_verification_screen.dart';
-
-class WelcomeScreen extends StatelessWidget implements AppRoute {
-  static String get routeName => 'welcome';
+class PhoneVerificationScreen extends StatelessWidget implements AppRoute {
+  static String get routeName => 'phone-verification';
 
   @override
   Widget get page => this;
@@ -16,7 +14,7 @@ class WelcomeScreen extends StatelessWidget implements AppRoute {
   @override
   String get route => routeName;
 
-  const WelcomeScreen({Key? key}) : super(key: key);
+  const PhoneVerificationScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,11 +32,7 @@ class WelcomeScreen extends StatelessWidget implements AppRoute {
               .0.s,
               MediumButton(
                 label: 'Get Started',
-                onPressed: () {
-                  Navigator.of(context).pushNamed(
-                      PhoneVerificationScreen.routeName,
-                      arguments: Transissions.slideLeft);
-                },
+                onPressed: () {},
               ),
               20.0.h,
             ],

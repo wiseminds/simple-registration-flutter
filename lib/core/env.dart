@@ -30,3 +30,12 @@ class Development extends Env {
   @override
   String get locationUrl => env.getKey(Env.locationBaseUrl);
 }
+
+class Test extends Env {
+  Test(Map<String, dynamic> env) : super(env);
+
+  @override
+  String get baseUrl => env.getKey(Env.developmentBaseUrl);
+  @override
+  String get locationUrl => env.getKey(Env.locationBaseUrl);
+}
