@@ -13,6 +13,8 @@ dependencies:
   flutter:
     sdk: flutter 
   cupertino_icons: ^1.0.2
+  flutter_bloc: ^7.3.1
+  get_it: ^7.2.0
 
 dev_dependencies:
   flutter_test:
@@ -26,3 +28,18 @@ dev_dependencies:
 
 flutter: 
   uses-material-design: true 
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter-Thin.ttf
+        - asset: assets/fonts/Inter-ExtraLight.ttf
+        - asset: assets/fonts/Inter-Light.ttf
+        - asset: assets/fonts/Inter-Regular.ttf
+        - asset: assets/fonts/Inter-Medium.ttf
+        - asset: assets/fonts/Inter-SemiBold.ttf
+        - asset: assets/fonts/Inter-Bold.ttf
+        - asset: assets/fonts/Inter-ExtraBold.ttf
+        - asset: assets/fonts/Inter-Black.ttf
+
+  assets:
+    - assets/images/ 
