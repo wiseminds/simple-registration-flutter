@@ -31,7 +31,7 @@ class PhoneVerificationScreen extends StatelessWidget implements AppRoute {
                   style: context.headline5),
               .0.s,
               MediumButton(
-                label: 'Get Started',
+                label: 'Continue',
                 onPressed: () {},
               ),
               20.0.h,
