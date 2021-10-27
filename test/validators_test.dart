@@ -23,11 +23,11 @@ void main() {
        phoneNumberTestCases.forEach((key, value) { 
 
       test('can only include numbers', () {
-        expect(key, validator.verifyPhoneNumber(value));
+        expect(value, validator.verifyPhoneNumber(key));
       });
 
       test('must be less than 20 characters', () {
-        expect(key, validator.verifyPhoneNumber(value));
+        expect(value, validator.verifyPhoneNumber(key));
       });
          
        
