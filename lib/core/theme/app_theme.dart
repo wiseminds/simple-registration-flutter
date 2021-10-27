@@ -16,10 +16,11 @@ class AppTheme {
 
   InputDecorationTheme get inputDecorationTheme =>
       AppInputDecoration.inputDecoration(
-          color: AppColors.borderColor, font: font);
+          color: AppColors.borderColor, font: font, primary: primary);
 
   InputDecorationTheme get inputDecorationThemeDark =>
-      AppInputDecoration.inputDecoration(color: Colors.white, font: font);
+      AppInputDecoration.inputDecoration(
+          color: Colors.white, font: font, primary: Colors.white);
 
   TextTheme get _textThemeDark =>
       AppTextTheme.textTheme(color: Colors.white, font: font);

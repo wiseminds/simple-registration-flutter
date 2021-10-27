@@ -1,8 +1,9 @@
 import 'package:challenge/constants/strings.dart';
-
+/// A mixin that handles all validation
 mixin Validator {
   final RegExp numberRegExp = RegExp(r'^\d+$'); // RegExp to validate numbers
 
+  /// a phone number validator function
   String? verifyPhoneNumber(String? number) {
     number = number?.replaceAll(' ', '') ?? '';
     if (number.isEmpty) {
