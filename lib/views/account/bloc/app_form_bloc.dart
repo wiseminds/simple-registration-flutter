@@ -8,10 +8,11 @@ part 'app_form_state.dart';
 
 class AppFormBloc extends Bloc<AppFormEvent, AppFormState> {
   AppFormBloc() : super(AppFormState()) {
-    
+    on<OtpNumberChanged>((event, emit) {
+      emit(state.copyWith(otp: event.value));
+    });
     on<PhoneNumberChanged>((event, emit) {
       emit(state.copyWith(phoneNumber: event.value));
     });
-    on<AppFormEvent>((event, emit) {});
   }
 }

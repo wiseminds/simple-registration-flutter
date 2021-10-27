@@ -2,6 +2,7 @@ import 'package:challenge/constants/strings.dart';
 /// A mixin that handles all validation
 mixin Validator {
   final RegExp numberRegExp = RegExp(r'^\d+$'); // RegExp to validate numbers
+  final RegExp nigerianNumber = RegExp(r'^([0]?)(7|8|9)(0|1)\d{8}$');
 
   /// a phone number validator function
   String? verifyPhoneNumber(String? number) {

@@ -1,6 +1,7 @@
 import 'package:challenge/constants/dimens.dart';
 import 'package:challenge/core/router/app_route.dart';
 import 'package:challenge/core/router/route_transisions.dart';
+import 'package:challenge/views/account/register_screen.dart';
 import 'package:challenge/widgets/medium_button.dart';
 import 'package:flutter/material.dart';
 import 'package:challenge/core/extensions/index.dart';

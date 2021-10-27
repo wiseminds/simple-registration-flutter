@@ -1,5 +1,4 @@
- 
-import 'package:flutter/material.dart'; 
+import 'package:flutter/material.dart';
 import 'package:challenge/core/extensions/index.dart';
 
 class AuthHeader extends StatelessWidget {
@@ -23,9 +22,8 @@ class AuthHeader extends StatelessWidget {
             child: Text(title,
                 style:
                     context.headline5?.copyWith(fontWeight: FontWeight.w700))),
-       10.0.h,
-        Text(subtitle,
-            style: context.caption),
+        10.0.h,
+        Text(subtitle, style: context.caption),
       ],
     );
   }

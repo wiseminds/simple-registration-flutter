@@ -4,6 +4,9 @@ part of 'app_form_bloc.dart';
 class AppFormState extends Equatable with Validator {
   final String? phoneNumber, otp;
 
+  /// removed all spaces added from input formater
+  String get phoneNumberSanitized => (phoneNumber ?? '').replaceAll(' ', '');
+
   AppFormState({this.phoneNumber, this.otp});
 
   /// clone the current state with updated values
@@ -14,4 +17,7 @@ class AppFormState extends Equatable with Validator {
 
   @override
   List<Object?> get props => [phoneNumber, otp];
+
+  @override
+  String toString() => {'phoneNumber': phoneNumber, 'otp': otp}.toString();
 }
