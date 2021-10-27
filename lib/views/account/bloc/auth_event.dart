@@ -18,3 +18,9 @@ class SubmitOTP extends AuthEvent {
 
   const SubmitOTP(this.otp);
 }
+
+class SubmitRegister extends AuthEvent {
+  final Map<String, dynamic> body;
+
+  const SubmitRegister(this.body);
+}

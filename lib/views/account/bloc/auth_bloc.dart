@@ -23,5 +23,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> with Validator {
       await Future.delayed(const Duration(seconds: 1));
       emit(SuccessAuthState());
     });
+    on<SubmitRegister>((event, emit) async {
+      emit(LoadingAuthState());
+      await Future.delayed(const Duration(seconds: 1));
+      emit(SuccessAuthState());
+    });
   }
 }

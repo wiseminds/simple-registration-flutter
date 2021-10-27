@@ -1,15 +1,16 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:challenge/constants/dimens.dart';
 import 'package:challenge/core/extensions/index.dart';
 import 'package:challenge/core/router/app_router.dart';
 import 'package:challenge/core/router/route_transisions.dart';
+import 'package:challenge/widgets/spring_progressbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'auth_header.dart';
 import 'bloc/app_form_bloc.dart';
 import 'bloc/auth_bloc.dart';
 import 'register_screen.dart';
@@ -28,13 +29,13 @@ class _OtpVerificationFormState extends State<OtpVerificationForm> {
   late AuthBloc _bloc;
   late AppFormBloc _formBloc;
   late TextEditingController _controller;
-  // final Stream<Duration> _stream = Stream.periodic(const Duration(seconds: 1));
-  // StreamController<Duration>? _streamController;
+
   @override
   void initState() {
     _focusNode = FocusNode();
     _formBloc = AppFormBloc();
     _controller = TextEditingController();
+    _controller.text = _formBloc.state.otp ?? '';
     _bloc = AuthBloc();
 
     super.initState();
@@ -42,11 +43,6 @@ class _OtpVerificationFormState extends State<OtpVerificationForm> {
       setState(() {});
     });
   }
-
-  // _startStream() {
-  //   _streamController = _stream.listen((event) {});
-  //   _streamController?.add(event);
-  // }
 
   @override
   void dispose() {
@@ -60,6 +56,18 @@ class _OtpVerificationFormState extends State<OtpVerificationForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: CupertinoNavigationBar(
+        backgroundColor: context.backgroundColor,
+        leading: const CloseButton(),
+        border: Border.all(color: Colors.transparent),
+        trailing: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            'Step 1 of 4',
+            style: context.caption,
+          ),
+        ),
+      ),
       resizeToAvoidBottomInset: true,
       body: BlocConsumer<AuthBloc, AuthState>(
           bloc: _bloc,
@@ -88,16 +96,16 @@ class _OtpVerificationFormState extends State<OtpVerificationForm> {
                     children: [
                       Padding(
                           padding: const EdgeInsets.all(20.0),
-                          child: SingleChildScrollView(
-                              child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                20.0.h,
-                                Text(
-                                  'Please enter OTP sent to your mobile number',
-                                  style: context.bodyText1,
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                // 20.0.h,
+                                const AuthHeader(
+                                  title: '',
+                                  subtitle:
+                                      'Please enter OTP sent to your mobile number',
                                 ),
-                                30.0.h,
                                 GestureDetector(
                                   onLongPress: () async {
                                     var data =
@@ -173,7 +181,10 @@ class _OtpVerificationFormState extends State<OtpVerificationForm> {
                                     ]),
                                   ),
                                 ),
-                              ]))),
+
+                                30.0.h,
+                                .0.s
+                              ])),
                       if (authState is LoadingAuthState)
                         Container(
                             color: Colors.black26,
@@ -185,7 +196,6 @@ class _OtpVerificationFormState extends State<OtpVerificationForm> {
   }
 
   update(String text) {
-    print(text);
     text.trim().replaceAll(' ', '');
     text = text.substring(0, min(6, text.length));
 
@@ -208,8 +218,13 @@ class _OtpVerificationFormState extends State<OtpVerificationForm> {
 class OtpChip extends StatelessWidget {
   final String number;
   final bool isFocused;
+  final bool encryptDisplay;
 
-  const OtpChip({Key? key, this.number = '', this.isFocused = false})
+  const OtpChip(
+      {Key? key,
+      this.number = '',
+      this.isFocused = false,
+      this.encryptDisplay = false})
       : super(key: key);
 
   @override
@@ -221,7 +236,7 @@ class OtpChip extends StatelessWidget {
             // borderRadius: BorderRadius.circular(6),
             border: Border(
                 bottom: BorderSide(
-                    width: isFocused ? .5 : 1,
+                    width: isFocused ? 2 : 1,
                     color:
                         context.primaryColor.withOpacity(isFocused ? 1 : .6)))),
         child: Container(
@@ -233,7 +248,7 @@ class OtpChip extends StatelessWidget {
               // size: Size.fromRadius(30.0),
               child: Center(
                   child: Text(
-            number,
+            encryptDisplay ? (number.isEmpty ? '' : '*') : number,
             style: context.headline4,
           ))),
         ),
