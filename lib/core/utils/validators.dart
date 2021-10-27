@@ -1,1 +1,3 @@
-// class Validator
+mixin Validator {
+  
+}
