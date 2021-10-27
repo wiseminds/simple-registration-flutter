@@ -4,17 +4,18 @@ import 'package:flutter_test/flutter_test.dart';
 // import 'package:test/test.dart';
 
 
-class ValidatorText with Validator {}
+class ValidatorTest with Validator {}
 
 
 Map<String, String?> phoneNumberTestCases = {
+'': Strings.errorMessageForNumberMustNotBeEmpty,
 'xfh0976578996807866554897': Strings.errorMessageForNumberMustBeADigit,
   '9487742820948472827492838': Strings.errorMessageForNumberMustBeLessThan20,
   '07098485758585': null
 };
 
 void main() {
-  final ValidatorText validator = ValidatorText();
+  final ValidatorTest validator = ValidatorTest();
 
   group('Validator Test', () {
 
