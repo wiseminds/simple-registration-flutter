@@ -1,8 +1,7 @@
 import 'dart:math';
 
-
 import 'package:flutter/material.dart';
-import 'package:sprung/sprung.dart'; 
+import 'package:sprung/sprung.dart';
 import 'package:challenge/core/extensions/index.dart';
 
 class SpringProgressbar extends StatefulWidget {
