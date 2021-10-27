@@ -125,11 +125,9 @@ class DateInputField extends StatelessWidget {
                           onPressed: () {
                             Navigator.of(context).pop();
                           },
-                          child: Text('Done')),
+                          child: const Text('Done')),
                     ),
-                    Divider(
-                      height: .1,
-                    ),
+                    const Divider(height: .1),
                     Expanded(
                         child: CupertinoDatePicker(
                       backgroundColor: background,

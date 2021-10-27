@@ -28,7 +28,7 @@ class LocationState extends Equatable {
           lgas: lgas ?? lgas,
           location: location ?? this.location,
           isLoading: isLoading ?? false);
-          
+
   @override
   List<Object?> get props => [location, isLoading, state, lga, lgas];
 

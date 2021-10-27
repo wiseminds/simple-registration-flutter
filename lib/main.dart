@@ -7,7 +7,7 @@ import 'core/router/app_router.dart';
 import 'core/router/routes.dart';
 import 'core/theme/app_theme.dart';
 import 'dependency_injection.dart';
-import 'env.example.dart';
+import '.env.dart';
 import 'views/splash_screen.dart';
 
 void main() async {

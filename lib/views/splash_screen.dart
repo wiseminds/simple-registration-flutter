@@ -19,7 +19,8 @@ class _SplashScreenState extends State<SplashScreen> {
 
   // navigate after app setup
   Future _navigate(BuildContext c) async {
-    Navigator.of(context).pushReplacementNamed(WelcomeScreen.routeName, arguments: Transissions.slideLeft);
+    Navigator.of(context).pushReplacementNamed(WelcomeScreen.routeName,
+        arguments: Transissions.slideLeft);
   }
 
   @override
@@ -29,8 +30,7 @@ class _SplashScreenState extends State<SplashScreen> {
       child: Center(
           child: _Logo(
               logo: const Hero(
-                  tag: ValueKey('logo'),
-                  child: FlutterLogo(size: 100)),
+                  tag: ValueKey('logo'), child: FlutterLogo(size: 100)),
               setUp: _navigate)),
     );
   }

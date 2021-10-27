@@ -39,4 +39,15 @@ mixin Validator {
       return Strings.errorMessageForInvalidPin;
     }
   }
+
+  /// a function to validate date of birth
+  String? validateDOB(DateTime? date) {
+    if (date == null) {
+      return Strings.errorMessageForInvalidDOB;
+    } else if (DateTime.now().isBefore(date) ||
+        (DateTime.now().year - date.year) < 18) {
+      return Strings.errorMessageForUnderAged;
+    }
+    return null;
+  }
 }

@@ -6,6 +6,11 @@ class AppInputDecoration {
           required Color color,
           required Color primary}) =>
       InputDecorationTheme(
+          errorStyle: TextStyle(
+              fontFamily: font,
+              color: Colors.red,
+              fontSize: 12,
+              fontWeight: FontWeight.w400),
           hintStyle: TextStyle(
               fontFamily: font,
               color: color.withOpacity(.8),
