@@ -31,7 +31,7 @@ mixin Validator {
     return null;
   }
 
-
+  /// a function to validate pin
   String? validatePin(String text) {
     if (text.isEmpty) {
       return Strings.errorMessageForEmptyPin;
@@ -40,4 +40,3 @@ mixin Validator {
     }
   }
 }
-
