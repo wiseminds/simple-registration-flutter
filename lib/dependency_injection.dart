@@ -12,6 +12,7 @@ import 'data/local/hive_repository.dart';
 import 'data/local/local_repository.dart';
 import 'data/remote/provider/api_provider.dart';
 import 'data/remote/provider/providers/dio_api_provider.dart';
+import 'widgets/location/cubit/location_cubit.dart';
 
 class DependencyInjection {
   static GetIt getIt = GetIt.I;
@@ -45,5 +46,8 @@ class DependencyInjection {
     getIt.registerSingleton<ApiProvider>(DioApiProvider());
 
     await GetIt.instance.allReady();
+
+    // cache states
+    LocationRepository().getLocation();
   }
 }
