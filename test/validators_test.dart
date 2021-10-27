@@ -41,22 +41,22 @@ void main() {
        
      });
 
-       group('Pin validator', () {
+       group('Validate pin', () {
         
       test('can only include numbers', () {
-        expect(Strings.errorMessageForInvalidPin, validator.validatorPin('xfh0976578996807866554897'));
+        expect(Strings.errorMessageForInvalidPin, validator.validatePin('xfh0976578996807866554897'));
       });
 
        test('pin must not be empty', () {
-        expect(Strings.errorMessageForEmptyPin, validator.validatorPin(''));
+        expect(Strings.errorMessageForEmptyPin, validator.validatePin(''));
       });
 
        test('pin must not be empty', () {
-        expect(Strings.errorMessageForInvalidPin, validator.validatorPin('374'));
+        expect(Strings.errorMessageForInvalidPin, validator.validatePin('374'));
       });
 
        test('pin must be 6 digit', () {
-        expect(null, validator.validatorPin('487673'));
+        expect(null, validator.validatePin('487673'));
       });
          
        
