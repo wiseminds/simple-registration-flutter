@@ -123,7 +123,7 @@ class _OtpVerificationFormState extends State<OtpVerificationForm> {
                                     height: 90,
                                     child: Stack(children: [
                                       AutofillGroup(
-                                        child: TextField(
+                                        child: TextField(key: const ValueKey('otp'),
                                           controller: _controller,
                                           focusNode: _focusNode,
                                           enabled: true,

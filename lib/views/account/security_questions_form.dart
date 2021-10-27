@@ -23,15 +23,35 @@ class SecurityQuestionsForm extends StatefulWidget {
 }
 
 class _SecurityQuestionsFormState extends State<SecurityQuestionsForm> {
+  AutovalidateMode autovalidateModeQ1 = AutovalidateMode.disabled;
+  AutovalidateMode autovalidateModeQ2 = AutovalidateMode.disabled;
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   final TextEditingController _qController1 = TextEditingController();
   final TextEditingController _qController2 = TextEditingController();
+  final FocusNode _a1Node = FocusNode();
+  final FocusNode _a2Node = FocusNode();
 
   @override
   void initState() {
     _qController1.text = widget.formBloc.state.answer1 ?? '';
     _qController2.text = widget.formBloc.state.answer2 ?? '';
     super.initState();
+    _a2Node.addListener(() {
+      if (!_a2Node.hasPrimaryFocus) {
+        setState(() {
+          autovalidateModeQ2 = AutovalidateMode.always;
+          autovalidateModeQ1 = AutovalidateMode.always;
+          autovalidateMode = AutovalidateMode.always;
+        });
+      }
+    });
+    _a1Node.addListener(() {
+      if (!_a1Node.hasPrimaryFocus) {
+        setState(() {
+          autovalidateModeQ1 = AutovalidateMode.always;
+        });
+      }
+    });
   }
 
   @override
@@ -91,8 +111,8 @@ class _SecurityQuestionsFormState extends State<SecurityQuestionsForm> {
                             return TextFormField(
                               enabled: authState is! LoadingAuthState,
                               controller: _qController1,
-                              // focusNode: _focusNode,
-                              autovalidateMode: autovalidateMode,
+                              focusNode: _a1Node,
+                              autovalidateMode: autovalidateModeQ1,
                               style: context.bodyText1,
                               validator: (text) => (text ?? '').isEmpty
                                   ? 'Please enter security answer'
@@ -101,6 +121,11 @@ class _SecurityQuestionsFormState extends State<SecurityQuestionsForm> {
                                   widget.formBloc.add(Answer1Changed(value)),
                               //added 3 digit to compensate for space added by formatter
                               maxLength: 100,
+                              onEditingComplete: () {
+                                setState(() {
+                                  autovalidateModeQ1 = AutovalidateMode.always;
+                                });
+                              },
                               decoration: InputDecoration(
                                   counterStyle: context.caption!
                                       .copyWith(fontSize: .0001, height: .001),
@@ -144,8 +169,8 @@ class _SecurityQuestionsFormState extends State<SecurityQuestionsForm> {
                             return TextFormField(
                               enabled: authState is! LoadingAuthState,
                               controller: _qController2,
-                              // focusNode: _focusNode,
-                              autovalidateMode: autovalidateMode,
+                              focusNode: _a2Node,
+                              autovalidateMode: autovalidateModeQ2,
                               style: context.bodyText1,
                               keyboardType: TextInputType.name,
                               textCapitalization: TextCapitalization.words,
@@ -156,6 +181,13 @@ class _SecurityQuestionsFormState extends State<SecurityQuestionsForm> {
                                   widget.formBloc.add(Answer2Changed(value)),
                               //added 3 digit to compensate for space added by formatter
                               maxLength: 50,
+                              onEditingComplete: () {
+                                setState(() {
+                                  autovalidateModeQ1 = AutovalidateMode.always;
+                                  autovalidateModeQ2 = AutovalidateMode.always;
+                                  autovalidateMode = AutovalidateMode.always;
+                                });
+                              },
                               decoration: InputDecoration(
                                   counterStyle: context.caption!
                                       .copyWith(fontSize: .0001, height: .001),
@@ -171,13 +203,14 @@ class _SecurityQuestionsFormState extends State<SecurityQuestionsForm> {
                                   label: 'Submit',
                                   isLoading: authState is LoadingAuthState,
                                   onPressed: () {
-                                    if (autovalidateMode ==
-                                        AutovalidateMode.disabled) {
-                                      setState(() {
-                                        autovalidateMode =
-                                            AutovalidateMode.always;
-                                      });
-                                    }
+                                    setState(() {
+                                      autovalidateModeQ1 =
+                                          AutovalidateMode.always;
+                                      autovalidateModeQ2 =
+                                          AutovalidateMode.always;
+                                      autovalidateMode =
+                                          AutovalidateMode.always;
+                                    });
                                     if (state.isSecurityFormValid) {
                                       context
                                           .read<AuthBloc>()

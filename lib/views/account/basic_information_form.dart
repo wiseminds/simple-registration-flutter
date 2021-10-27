@@ -119,11 +119,6 @@ class _BasicInformationFormState extends State<BasicInformationForm> {
                         onChanged: (value) {
                           if (value != null) {
                             widget.formBloc.add(GenderChanged(value));
-                            if (autovalidateMode == AutovalidateMode.disabled) {
-                              setState(() {
-                                autovalidateMode = AutovalidateMode.always;
-                              });
-                            }
                           }
                         },
                       );
@@ -135,8 +130,15 @@ class _BasicInformationFormState extends State<BasicInformationForm> {
                       builder: (context, state) => StateLgaDropdown(
                             initialState: state.state,
                             initialLga: state.lga,
-                            onLgaChanged: (value) =>
-                                widget.formBloc.add(LgaChanged(value)),
+                            onLgaChanged: (value) {
+                              widget.formBloc.add(LgaChanged(value));
+                              if (autovalidateMode ==
+                                  AutovalidateMode.disabled) {
+                                setState(() {
+                                  autovalidateMode = AutovalidateMode.always;
+                                });
+                              }
+                            },
                             onStateChanged: (value) =>
                                 widget.formBloc.add(StateChanged(value)),
                           )),

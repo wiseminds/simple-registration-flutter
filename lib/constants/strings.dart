@@ -3,6 +3,8 @@ class Strings {
   static const appTitle = 'Mobile Challenge';
   static const defaultErrorMessage = 'An error occurred';
 
+  static const welcome = 'Welcome to Flutter challenge app';
+
   static const errorMessageForNumberMustBeADigit =
       'Phone number can only include numbers';
   static const errorMessageForNumberMustBeLessThan20 =

@@ -10,6 +10,7 @@ App Structure
 
 Flutter is an interesting framework to work with, but requires a solid folder structure to build a scalable application. Based on research and years of experience, I have come to adopt a folder structure I use in most of my projects.
 
+The provided endpoint to fetch states and city was down when I needed to use it, I had to look for an alternative.
 
 
 ## lib
@@ -34,4 +35,3 @@ Flutter is an interesting framework to work with, but requires a solid folder st
 - this library is a custom http library I built to handle a lot of the boilerplate involved in data access including features like parsing JSON into specified dart model, uploading a file.
 - you can use any http library available (http, dio, chopper, e.t.c) to handle actual http call,
 just make sure to implement `ApiProvider` and implement all methods.
-- T 

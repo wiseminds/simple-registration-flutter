@@ -152,6 +152,10 @@ class _PhoneVerificationScreenState extends State<PhoneVerificationScreen> {
                                     label: 'Continue',
                                     isLoading: authState is LoadingAuthState,
                                     onPressed: () {
+                                      setState(() {
+                                        autovalidateMode =
+                                            AutovalidateMode.always;
+                                      });
                                       if (state.isPhoneNumberValid) {
                                         _bloc.add(SubmitPhoneNumber(
                                             state.phoneNumberSanitized));

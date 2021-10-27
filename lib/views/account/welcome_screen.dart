@@ -1,4 +1,5 @@
 import 'package:challenge/constants/dimens.dart';
+import 'package:challenge/constants/strings.dart';
 import 'package:challenge/core/router/app_route.dart';
 import 'package:challenge/core/router/route_transisions.dart';
 import 'package:challenge/views/account/register_screen.dart';
@@ -30,7 +31,7 @@ class WelcomeScreen extends StatelessWidget implements AppRoute {
               100.0.h,
               const FlutterLogo(size: 100),
               30.0.h,
-              Text('Welcome to Flutter challenge app',
+              Text(Strings.welcome,
                   style: context.headline5),
               .0.s,
               MediumButton(

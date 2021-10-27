@@ -1,6 +1,7 @@
 import 'package:challenge/core/router/route_transisions.dart';
 import 'package:flutter/material.dart';
 import 'package:spring/spring.dart';
+import 'package:challenge/core/extensions/index.dart';
 
 import 'account/welcome_screen.dart';
 
@@ -12,11 +13,6 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
   // navigate after app setup
   Future _navigate(BuildContext c) async {
     Navigator.of(context).pushReplacementNamed(WelcomeScreen.routeName,
@@ -26,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.white,
+      color: context.backgroundColor,
       child: Center(
           child: _Logo(
               logo: const Hero(
@@ -60,7 +56,6 @@ class __LogoState extends State<_Logo> with SingleTickerProviderStateMixin {
         upperBound: 1);
     super.initState();
     _controller.forward();
-    // .then((value) => widget.setUp(context));
   }
 
   @override
@@ -74,11 +69,11 @@ class __LogoState extends State<_Logo> with SingleTickerProviderStateMixin {
     return Spring.shake(
       animStatus: (status) {
         if (status == AnimStatus.completed) {
-          WidgetsBinding.instance?.addPostFrameCallback((timeStamp) async {
-            await Future.delayed(const Duration(milliseconds: 500), () {
-              widget.setUp(context);
+            WidgetsBinding.instance?.addPostFrameCallback((timeStamp) async {
+          // Future.delayed(const Duration(milliseconds: 500), () {
+            widget.setUp(context);
+          // });
             });
-          });
         }
       },
       delay: const Duration(milliseconds: 800),
